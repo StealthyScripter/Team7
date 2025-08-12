@@ -4,15 +4,14 @@ import {
   getTransactions,
   removeTransaction,
   getFinancialSummary
-} from "../../controllers/transactionController.js";
-import { protect } from "../../middleware/authMiddleware.js";
+} from "../../controllers/userController.js";
 
 const router = express.Router();
 
 // /api/transactions
-router.post("/", protect, addTransaction);
-router.get("/", protect, getTransactions);
-router.get("/summary", protect, getFinancialSummary);
-router.delete("/:transactionId", protect, removeTransaction);
+router.post("/", addTransaction);
+router.get("/", getTransactions);
+router.get("/summary", getFinancialSummary);
+router.delete("/:transactionId", removeTransaction);
 
 export default router;
